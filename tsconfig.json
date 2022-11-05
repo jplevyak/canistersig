@@ -8,5 +8,5 @@
     "rootDir": "."
   },
   "files": ["x.js"],
-  "resolveJsonModule": true,
+  "resolveJsonModule": true
 }
