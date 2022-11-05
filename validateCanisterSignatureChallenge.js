@@ -38,7 +38,7 @@ const principal = "rzd6v-qq7sr-slo2x-s3ad4-gak6r-tgx4s-qllet-myynk-hrxut-on46i-o
 const pubkey = "d0591a3e42d95cd59d52ea12aa42c05ba00f5c8067c005177553430547d1dfec";
 
 const DER_ED25519_PREFIX = fromHex("302a300506032b6570032100");
-const DER_BLS_PREFIX = fromHex('303c300c060a2b0601040183b8430102032c00');
+const DER_PREFIX = fromHex('303c300c060a2b0601040183b8430102032c00');
 
 function extractDER(buf, prefix) {
   const p = buf.slice(0, prefix.byteLength);
@@ -129,9 +129,9 @@ async function validate(delegation, challenge, signedChallenge, now) {
     let tree = signature.tree;
     let reconstructed = await agent.reconstruct(tree);
     if (!isBufferEqual(certifiedData, reconstructed)) {
-      throw new Error('Signature delgation invalid.');
+      throw new Error('Signature delegation invalid.');
     }
-    let canisterPubKey = new Uint8Array(extractDER(fromHex(delegation.publicKey), DER_BLS_PREFIX));
+    let canisterPubKey = new Uint8Array(extractDER(fromHex(delegation.publicKey), DER_PREFIX));
     let canisterIdLen = canisterPubKey[0];
     let canister = canisterPubKey.slice(1, canisterIdLen+1);
     let seed = canisterPubKey.slice(canisterIdLen+1);
