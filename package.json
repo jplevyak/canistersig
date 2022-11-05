@@ -15,10 +15,11 @@
   "name": "test",
   "version": "1.0.0",
   "description": "foo",
-  "main": "x.js",
+  "main": "validateCanisterSignatureChallenge.js",
   "scripts": {
     "build": "tsc -b && tsc -p tsconfig-cjs.json",
-    "format": "npm prettier --write src",
+    "format": "npm prettier --write .",
+    "run": "node validateCanisterSignatureChallenge.js",
     "test": "jtest --verbose"
   },
   "type": "module",
