@@ -50,11 +50,9 @@ const ROOT_KEY = new Uint8Array([
   186, 85, 165, 155, 151, 22,
 ]);
 
-// The internet identity principal for the
+// The principal for the 'delegation' identity..
 const principal =
   "rzd6v-qq7sr-slo2x-s3ad4-gak6r-tgx4s-qllet-myynk-hrxut-on46i-oae";
-const pubkey =
-  "d0591a3e42d95cd59d52ea12aa42c05ba00f5c8067c005177553430547d1dfec";
 
 const DER_ED25519_PREFIX = fromHex("302a300506032b6570032100");
 const DER_PREFIX = fromHex("303c300c060a2b0601040183b8430102032c00");
